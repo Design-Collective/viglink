@@ -1,9 +1,14 @@
 # encoding: utf-8
 require 'forwardable'
+require 'viglink/request'
+require 'viglink/product'
 
 module Viglink
   class Client
     extend Forwardable
+
+    include Request
+    include Product
 
     attr_reader :api_key, :api_url
 

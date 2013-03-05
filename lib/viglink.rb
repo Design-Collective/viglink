@@ -23,7 +23,7 @@ module Viglink
     private
 
     def load_defaults
-      self.api_url ||= 'http://api.viglink.com'
+      self.api_url ||= 'http://catalog.viglink.com'
     end
 
   end
