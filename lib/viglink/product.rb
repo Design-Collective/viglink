@@ -9,8 +9,8 @@ module Viglink
     # @return [Hashie::Mash] Product
     def find_products(options={})
       options[:key] = @api_key
-      response = get('/vigcatalog/products.xml', options)
-      response
+      products_response = get('/vigcatalog/products.xml', options)
+      products_response.response if products_response.response
     end
 
   end

@@ -2,6 +2,9 @@
 require 'forwardable'
 require 'viglink/request'
 require 'viglink/product'
+require 'viglink/deal'
+require 'viglink/merchant'
+require 'viglink/country'
 
 module Viglink
   class Client
@@ -9,6 +12,9 @@ module Viglink
 
     include Request
     include Product
+    include Deal
+    include Merchant
+    include Country
 
     attr_reader :api_key, :api_url
 
