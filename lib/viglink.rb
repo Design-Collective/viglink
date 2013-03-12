@@ -8,7 +8,7 @@ directory = File.expand_path(File.dirname(__FILE__))
 module Viglink
 
   class << self
-    attr_accessor :api_url, :api_key
+    attr_accessor :api_url, :api_key, :api_full_response
 
     ##
     # Configure default credentials
@@ -24,6 +24,7 @@ module Viglink
 
     def load_defaults
       self.api_url ||= 'http://catalog.viglink.com'
+      self.api_full_response ||= true
     end
 
   end

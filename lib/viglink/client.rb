@@ -16,7 +16,7 @@ module Viglink
     include Merchant
     include Country
 
-    attr_reader :api_key, :api_url
+    attr_reader :api_key, :api_url, :api_full_response
 
     ##
     # Create a new Viglink::Client object
@@ -25,6 +25,7 @@ module Viglink
     def initialize(options={})
       @api_key = options[:api_key] || Viglink.api_key
       @api_url = options[:api_url] || Viglink.api_url
+      @api_full_response = options[:api_full_response] || Viglink.api_full_response
     end
 
     ##

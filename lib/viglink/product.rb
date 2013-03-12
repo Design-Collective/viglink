@@ -14,10 +14,10 @@ module Viglink
       options[:key] = @api_key
       products_response = get('/vigcatalog/products.xml', options)
 
-      if full_response.to_s.to_bool
+      if full_response.to_s.to_bool or @api_full_response
         products_response.response if products_response.response
       else
-        products_response.response.results.products if products_response.response
+        products_response.response.results.products if products_response.response.results
       end
 
     end

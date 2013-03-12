@@ -15,10 +15,10 @@ module Viglink
       options[:key] = @api_key
       deals_response = get('/vigcatalog/deals.xml', options)
 
-      if full_response.to_s.to_bool
+      if full_response.to_s.to_bool or @api_full_response
         deals_response.response if deals_response.response
       else
-        deals_response.response.results.deals if deals_response.response
+        deals_response.response.results.deals if deals_response.response.results
       end
 
     end
@@ -35,10 +35,10 @@ module Viglink
       options[:key] = @api_key
       deal_types_response = get('/vigcatalog/deal_types.xml', options)
 
-      if full_response.to_s.to_bool
+      if full_response.to_s.to_bool or @api_full_response
         deal_types_response.response if deal_types_response.response
       else
-        deal_types_response.response.results.deal_types if deal_types_response.response
+        deal_types_response.response.results.deal_types if deal_types_response.response.results
       end
     end
 
