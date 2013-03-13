@@ -14,7 +14,7 @@ module Viglink
 
     def request(method, path, options)
       response = connection.send(method) do |request|
-        case method
+      case method
         when :get
           request.url(path, options)
         when :put, :post

@@ -2,6 +2,7 @@ require "faraday"
 require "faraday_middleware"
 require "viglink/version"
 require "viglink/client"
+require "viglink/purchases"
 
 directory = File.expand_path(File.dirname(__FILE__))
 
@@ -25,7 +26,9 @@ module Viglink
     def load_defaults
       self.api_url ||= 'http://catalog.viglink.com'
       self.api_full_response ||= true
-    end
+
+      self.api_cuid_url ||= 'https://www.viglink.com/service/v1/cuidRevenue'
+   end
 
   end
 
