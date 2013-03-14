@@ -31,8 +31,10 @@ RSpec.configure do |c|
   #
   c.before(:each) do
     Viglink.configure do |config|
-      config.api_key  = 'your-api-key'
-      config.api_url  = 'http://catalog.viglink.com'
+      config.api_key = 'your-api-key'
+      config.api_url = 'http://catalog.viglink.com'
+      config.api_secret = 'your-secret-key'
+      config.api_cuid_url = 'https://www.viglink.com/service/v1/cuidRevenue'
     end
   end
 end
