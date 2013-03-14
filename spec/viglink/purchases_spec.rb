@@ -35,7 +35,7 @@ describe Viglink::Purchases do
     context "with search options" do
 
       before(:each) do
-        @purchases_response = purchases.find_purchases({:period: 'week'})
+        @purchases_response = purchases.find_purchases({period: 'week'})
       end
 
       it "returns a Hash of purchases", vcr: true do
