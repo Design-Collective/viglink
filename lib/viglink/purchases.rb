@@ -44,7 +44,6 @@ module Viglink
         options[:period] = @period
       end
       purchases_response = get('', options)
-      pp purchases_response
     end
 
 
