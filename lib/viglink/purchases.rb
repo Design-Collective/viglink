@@ -37,7 +37,9 @@ module Viglink
 
     def find_purchases(options={})
       options[:secret] = @api_secret
-      unless options.has_key?(:start_date)
+      if options.has_key?(:start_date)
+        options[:lastDate] = options.delete(:start_date)
+      else
         options[:lastDate] = @start_date
       end
       unless options.has_key?(:period)
