@@ -8,7 +8,7 @@ module Viglink
 
     include Request
 
-    attr_reader :api_secret, :api_cuid_url, :start_date
+    attr_reader :api_secret, :api_cuid_url, :last_date
 
     ##
     # Create a new Viglink::Client object
@@ -17,7 +17,7 @@ module Viglink
     def initialize(options={})
       @api_secret = options[:api_secret] || nil
       @api_cuid_url = options[:api_cuid_url] || Viglink.api_cuid_url
-      @start_date = options[:start_date] || 1.day.ago.strftime("%Y/%m/%d")
+      @last_date = options[:last_date] || 1.day.ago.strftime("%Y/%m/%d")
       @period = options[:period] || "day"
     end
 
@@ -37,10 +37,10 @@ module Viglink
 
     def find_purchases(options={})
       options[:secret] = @api_secret
-      if options.has_key?(:start_date)
-        options[:lastDate] = options.delete(:start_date)
+      if options.has_key?(:last_date)
+        options[:lastDate] = options.delete(:last_date)
       else
-        options[:lastDate] = @start_date
+        options[:lastDate] = @last_date
       end
       unless options.has_key?(:period)
         options[:period] = @period
